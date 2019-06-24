@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Switch
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Home from '../components/Home';
@@ -12,9 +12,17 @@ import Movies from '../components/Movies';
 
 const App = (props) => {
   return (
-    <Router>
-      {/*{code here}*/}
-    </Router>
+  <Router>
+    <React.Fragment>
+      <NavBar/>
+      <Switch>
+        <Route exact path='/' render={Home}/>
+        <Route exact path='/actors' render={Actors}/>
+        <Route exact path='/directors' render={Directors}/>
+        <Route exact path='/movies' render={Movies}/>
+      </Switch>
+    </React.Fragment>
+  </Router>    
   );
 };
 
